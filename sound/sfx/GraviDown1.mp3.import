@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GraviDown1.mp3-482a9601a300606afe654c6693b26d36.mp3str"
+
+[deps]
+
+source_file="res://sound/sfx/GraviDown1.mp3"
+dest_files=[ "res://.import/GraviDown1.mp3-482a9601a300606afe654c6693b26d36.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,322 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://scripts/Planet.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Sun.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=3]
+[ext_resource path="res://scripts/CrystalHUD.gd" type="Script" id=4]
+[ext_resource path="res://sprites/final/MainBG.png" type="Texture" id=5]
+[ext_resource path="res://sprites/SpaceshipLvl2.png" type="Texture" id=6]
+[ext_resource path="res://sprites/level2/2-1circle-aroundSun.png" type="Texture" id=7]
+[ext_resource path="res://sprites/level2/GreenSun.png" type="Texture" id=8]
+[ext_resource path="res://sound/music/Drip City.mp3" type="AudioStream" id=9]
+[ext_resource path="res://sprites/level2/GreenChrystal.png" type="Texture" id=10]
+[ext_resource path="res://sprites/level2/2-4circle-aroundSun.png" type="Texture" id=11]
+[ext_resource path="res://sprites/level2/2-2circle-aroundSun.png" type="Texture" id=12]
+[ext_resource path="res://sprites/level2/GreenChryGrey.png" type="Texture" id=13]
+[ext_resource path="res://sprites/level2/RedPlanet1.png" type="Texture" id=14]
+[ext_resource path="res://sprites/level2/2-3circle-aroundSun.png" type="Texture" id=15]
+[ext_resource path="res://sprites/level2/RedPlanet4.png" type="Texture" id=16]
+[ext_resource path="res://sprites/level2/RedPlanet2.png" type="Texture" id=17]
+[ext_resource path="res://sprites/level2/RedPlanet3.png" type="Texture" id=18]
+[ext_resource path="res://prefabs/GreenCrystal.tscn" type="PackedScene" id=19]
+[ext_resource path="res://prefabs/Raumschiff.tscn" type="PackedScene" id=20]
+[ext_resource path="res://prefabs/Jukebox.tscn" type="PackedScene" id=21]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 101.005
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 746.676
+
+[sub_resource type="Curve2D" id=8]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1, -744, 0, 0, 0, 0, 168, -721, 0, 0, 0, 0, 312, -667, 0, 0, 0, 0, 435, -587, 0, 0, 0, 0, 518, -505, 0, 0, 0, 0, 606, -383, 0, 0, 0, 0, 677, -234, 0, 0, 0, 0, 700, -108, 0, 0, 0, 0, 711, -5, 0, 0, 0, 0, 693, 158, 0, 0, 0, 0, 642, 310, 0, 0, 0, 0, 516, 506, 0, 0, 0, 0, 399, 615, 0, 0, 0, 0, 290, 679, 0, 0, 0, 0, 145, 731, 0, 0, 0, 0, -2, 749, 0, 0, 0, 0, -169, 723, 0, 0, 0, 0, -306, 669, 0, 0, 0, 0, -446, 575, 0, 0, 0, 0, -561, 457, 0, 0, 0, 0, -617, 360, 0, 0, 0, 0, -667, 258, 0, 0, 0, 0, -696, 126, 0, 0, 0, 0, -710, 1, 0, 0, 0, 0, -691, -150, 0, 0, 0, 0, -649, -288, 0, 0, 0, 0, -593, -405, 0, 0, 0, 0, -528, -493, 0, 0, 0, 0, -421, -594, 0, 0, 0, 0, -290, -676, 0, 0, 0, 0, -141, -727, 0, 0, 0, 0, 1, -744 )
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 39.101
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 11.8638
+
+[sub_resource type="Curve2D" id=11]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -559, -1025, 0, 0, 0, 0, -418, -1075, 0, 0, 0, 0, -286, -1105, 0, 0, 0, 0, -139, -1120, 0, 0, 0, 0, 0, -1122, 0, 0, 0, 0, 129, -1107, 0, 0, 0, 0, 259, -1084, 0, 0, 0, 0, 495, -1000, 0, 0, 0, 0, 682, -895, 0, 0, 0, 0, 889, -724, 0, 0, 0, 0, 1034, -546, 0, 0, 0, 0, 1126, -363, 0, 0, 0, 0, 1189, -179, 0, 0, 0, 0, 1216, 1, 0, 0, 0, 0, 1212, 155, 0, 0, 0, 0, 1176, 354, 0, 0, 0, 0, 1112, 510, 0, 0, 0, 0, 1008, 682, 0, 0, 0, 0, 890, 808, 0, 0, 0, 0, 755, 906, 0, 0, 0, 0, 568, 1019, 0, 0, 0, 0, 380, 1082, 0, 0, 0, 0, 181, 1118, 0, 0, 0, 0, -1, 1120, 0, 0, 0, 0, -179, 1102, 0, 0, 0, 0, -371, 1050, 0, 0, 0, 0, -527, 981, 0, 0, 0, 0, -689, 893, 0, 0, 0, 0, -880, 742, 0, 0, 0, 0, -1000, 585, 0, 0, 0, 0, -1112, 411, 0, 0, 0, 0, -1181, 209, 0, 0, 0, 0, -1218, -1, 0, 0, 0, 0, -1206, -241, 0, 0, 0, 0, -1138, -452, 0, 0, 0, 0, -1055, -612, 0, 0, 0, 0, -916, -783, 0, 0, 0, 0, -744, -925, 0, 0, 0, 0, -559, -1025 )
+}
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 57.0
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 12.9222
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 585, -1457, 0, 0, 0, 0, 898, -1279, 0, 0, 0, 0, 1123, -1091, 0, 0, 0, 0, 1281, -910, 0, 0, 0, 0, 1417, -694, 0, 0, 0, 0, 1511, -480, 0, 0, 0, 0, 1582, -240, 0, 0, 0, 0, 1616, -2, 0, 0, 0, 0, 1597, 309, 0, 0, 0, 0, 1530, 594, 0, 0, 0, 0, 1436, 799, 0, 0, 0, 0, 1299, 1011, 0, 0, 0, 0, 1132, 1189, 0, 0, 0, 0, 937, 1342, 0, 0, 0, 0, 727, 1458, 0, 0, 0, 0, 518, 1532, 0, 0, 0, 0, 249, 1584, 0, 0, 0, 0, 1, 1596, 0, 0, 0, 0, -215, 1570, 0, 0, 0, 0, -437, 1514, 0, 0, 0, 0, -668, 1415, 0, 0, 0, 0, -857, 1309, 0, 0, 0, 0, -1041, 1169, 0, 0, 0, 0, -1214, 999, 0, 0, 0, 0, -1371, 781, 0, 0, 0, 0, -1488, 538, 0, 0, 0, 0, -1568, 294, 0, 0, 0, 0, -1613, -3, 0, 0, 0, 0, -1606, -261, 0, 0, 0, 0, -1552, -508, 0, 0, 0, 0, -1471, -725, 0, 0, 0, 0, -1372, -913, 0, 0, 0, 0, -1181, -1141, 0, 0, 0, 0, -976, -1323, 0, 0, 0, 0, -736, -1456, 0, 0, 0, 0, -501, -1538, 0, 0, 0, 0, -225, -1590, 0, 0, 0, 0, 0, -1597, 0, 0, 0, 0, 305, -1552, 0, 0, 0, 0, 585, -1457 )
+}
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 54.0093
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 15.2264
+
+[sub_resource type="Curve2D" id=16]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -1293, 1449, 0, 0, 0, 0, -1522, 1230, 0, 0, 0, 0, -1723, 943, 0, 0, 0, 0, -1873, 642, 0, 0, 0, 0, -1973, 328, 0, 0, 0, 0, -2014, -2, 0, 0, 0, 0, -2003, -267, 0, 0, 0, 0, -1934, -606, 0, 0, 0, 0, -1829, -884, 0, 0, 0, 0, -1658, -1165, 0, 0, 0, 0, -1429, -1431, 0, 0, 0, 0, -1134, -1656, 0, 0, 0, 0, -758, -1837, 0, 0, 0, 0, -348, -1935, 0, 0, 0, 0, 3, -1954, 0, 0, 0, 0, 379, -1906, 0, 0, 0, 0, 718, -1803, 0, 0, 0, 0, 974, -1675, 0, 0, 0, 0, 1272, -1477, 0, 0, 0, 0, 1509, -1244, 0, 0, 0, 0, 1703, -987, 0, 0, 0, 0, 1874, -647, 0, 0, 0, 0, 1972, -326, 0, 0, 0, 0, 2018, -3, 0, 0, 0, 0, 1995, 348, 0, 0, 0, 0, 1920, 663, 0, 0, 0, 0, 1794, 948, 0, 0, 0, 0, 1621, 1224, 0, 0, 0, 0, 1411, 1452, 0, 0, 0, 0, 1184, 1623, 0, 0, 0, 0, 851, 1801, 0, 0, 0, 0, 447, 1919, 0, 0, 0, 0, 0, 1958, 0, 0, 0, 0, -485, 1882, 0, 0, 0, 0, -954, 1682, 0, 0, 0, 0, -1293, 1449 )
+}
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 39.101
+
+[sub_resource type="CircleShape2D" id=15]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource( 3 )
+crystal_count = 4
+
+[node name="Sprite" type="Sprite" parent="."]
+z_index = -100
+texture = ExtResource( 5 )
+
+[node name="Sun" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Sun"]
+position = Vector2( 0, 10 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sun"]
+shape = SubResource( 3 )
+
+[node name="Gravity Well" type="Area2D" parent="Sun"]
+visible = false
+scale = Vector2( 3.84, 3.84 )
+space_override = 1
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+gravity = 30.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sun/Gravity Well"]
+shape = SubResource( 5 )
+
+[node name="Raumschiff" parent="." instance=ExtResource( 20 )]
+position = Vector2( -303, 0 )
+
+[node name="Sprite" parent="Raumschiff/Collider" index="0"]
+texture = ExtResource( 6 )
+
+[node name="Jukebox" parent="." instance=ExtResource( 21 )]
+stream = ExtResource( 9 )
+
+[node name="Orbit 1" type="Path2D" parent="."]
+curve = SubResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Orbit 1"]
+z_index = -10
+texture = ExtResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Orbit 1"]
+position = Vector2( 498.916, 521.916 )
+offset = 1713.47
+rotate = false
+
+[node name="Planet 1" type="KinematicBody2D" parent="Orbit 1/PathFollow2D"]
+script = ExtResource( 1 )
+orb_period = 10.0
+day_length = 10.0
+
+[node name="Sprite" type="Sprite" parent="Orbit 1/PathFollow2D/Planet 1"]
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit 1/PathFollow2D/Planet 1"]
+shape = SubResource( 4 )
+
+[node name="Gravity Well" type="Area2D" parent="Orbit 1/PathFollow2D/Planet 1"]
+space_override = 1
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+gravity = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit 1/PathFollow2D/Planet 1/Gravity Well"]
+scale = Vector2( 50, 50 )
+shape = SubResource( 7 )
+
+[node name="GreenCrystal" parent="Orbit 1/PathFollow2D/Planet 1" instance=ExtResource( 19 )]
+position = Vector2( 5.086, -53.9177 )
+
+[node name="Orbit 2" type="Path2D" parent="."]
+curve = SubResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Orbit 2"]
+z_index = -20
+texture = ExtResource( 12 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Orbit 2"]
+position = Vector2( 230.181, -1089.1 )
+offset = 804.527
+rotate = false
+
+[node name="Planet 2" type="KinematicBody2D" parent="Orbit 2/PathFollow2D"]
+script = ExtResource( 1 )
+orb_period = 70.0
+day_length = 10.0
+
+[node name="Sprite" type="Sprite" parent="Orbit 2/PathFollow2D/Planet 2"]
+texture = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit 2/PathFollow2D/Planet 2"]
+shape = SubResource( 9 )
+
+[node name="Gravity Well" type="Area2D" parent="Orbit 2/PathFollow2D/Planet 2"]
+space_override = 1
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+gravity = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit 2/PathFollow2D/Planet 2/Gravity Well"]
+scale = Vector2( 50, 50 )
+shape = SubResource( 10 )
+
+[node name="GreenCrystal" parent="Orbit 2/PathFollow2D/Planet 2" instance=ExtResource( 19 )]
+position = Vector2( 3.81853, -75.9012 )
+
+[node name="Orbit 3" type="Path2D" parent="."]
+curve = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Orbit 3"]
+z_index = -30
+texture = ExtResource( 15 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Orbit 3"]
+position = Vector2( -1282.51, -1019.83 )
+offset = 8008.92
+rotate = false
+
+[node name="Planet 3" type="KinematicBody2D" parent="Orbit 3/PathFollow2D"]
+script = ExtResource( 1 )
+orb_period = 60.0
+day_length = 30.0
+
+[node name="Sprite" type="Sprite" parent="Orbit 3/PathFollow2D/Planet 3"]
+texture = ExtResource( 18 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit 3/PathFollow2D/Planet 3"]
+shape = SubResource( 12 )
+
+[node name="Gravity Well" type="Area2D" parent="Orbit 3/PathFollow2D/Planet 3"]
+space_override = 1
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+gravity = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit 3/PathFollow2D/Planet 3/Gravity Well"]
+scale = Vector2( 50, 50 )
+shape = SubResource( 13 )
+
+[node name="GreenCrystal" parent="Orbit 3/PathFollow2D/Planet 3" instance=ExtResource( 19 )]
+position = Vector2( 2.50952, -71.1735 )
+
+[node name="Orbit 4" type="Path2D" parent="."]
+curve = SubResource( 16 )
+
+[node name="Sprite" type="Sprite" parent="Orbit 4"]
+z_index = -40
+texture = ExtResource( 11 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Orbit 4"]
+position = Vector2( -1304.69, 1437.82 )
+offset = 16.1891
+rotate = false
+
+[node name="Planet 4" type="KinematicBody2D" parent="Orbit 4/PathFollow2D"]
+script = ExtResource( 1 )
+orb_period = 80.0
+day_length = 3.0
+
+[node name="Sprite" type="Sprite" parent="Orbit 4/PathFollow2D/Planet 4"]
+texture = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit 4/PathFollow2D/Planet 4"]
+shape = SubResource( 14 )
+
+[node name="Gravity Well" type="Area2D" parent="Orbit 4/PathFollow2D/Planet 4"]
+space_override = 1
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+gravity = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit 4/PathFollow2D/Planet 4/Gravity Well"]
+scale = Vector2( 50, 50 )
+shape = SubResource( 15 )
+
+[node name="GreenCrystal" parent="Orbit 4/PathFollow2D/Planet 4" instance=ExtResource( 19 )]
+position = Vector2( 5.68872, -54.8221 )
+
+[node name="LevelHUD" type="CanvasLayer" parent="."]
+
+[node name="Crystals" type="Node2D" parent="LevelHUD"]
+position = Vector2( 165, 70 )
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 4 )
+
+[node name="Off" type="Node2D" parent="LevelHUD/Crystals"]
+
+[node name="Grey 1" type="Sprite" parent="LevelHUD/Crystals/Off"]
+position = Vector2( -60, 0 )
+z_index = 150
+texture = ExtResource( 13 )
+
+[node name="Grey 2" type="Sprite" parent="LevelHUD/Crystals/Off"]
+z_index = 150
+texture = ExtResource( 13 )
+
+[node name="Grey 3" type="Sprite" parent="LevelHUD/Crystals/Off"]
+position = Vector2( 60, 0 )
+z_index = 150
+texture = ExtResource( 13 )
+
+[node name="Grey 4" type="Sprite" parent="LevelHUD/Crystals/Off"]
+position = Vector2( 120, 0 )
+z_index = 150
+texture = ExtResource( 13 )
+
+[node name="On" type="Node2D" parent="LevelHUD/Crystals"]
+
+[node name="Full 1" type="Sprite" parent="LevelHUD/Crystals/On"]
+visible = false
+position = Vector2( -60, 0 )
+z_index = 150
+texture = ExtResource( 10 )
+
+[node name="Full 2" type="Sprite" parent="LevelHUD/Crystals/On"]
+visible = false
+z_index = 150
+texture = ExtResource( 10 )
+
+[node name="Full 3" type="Sprite" parent="LevelHUD/Crystals/On"]
+visible = false
+position = Vector2( 60, 0 )
+z_index = 150
+texture = ExtResource( 10 )
+
+[node name="Full 4" type="Sprite" parent="LevelHUD/Crystals/On"]
+visible = false
+position = Vector2( 120, 0 )
+z_index = 150
+texture = ExtResource( 10 )
+
+[connection signal="body_entered" from="Sun/Gravity Well" to="Sun" method="_on_Gravity_Well_body_entered"]
+[connection signal="body_exited" from="Sun/Gravity Well" to="Sun" method="_on_Gravity_Well_body_exited"]
+[connection signal="crystal_collected" from="Raumschiff" to="." method="_on_Raumschiff_crystal_collected"]
+[connection signal="crystal_collected" from="Raumschiff" to="LevelHUD/Crystals" method="_on_Raumschiff_crystal_collected"]
+[connection signal="body_entered" from="Orbit 1/PathFollow2D/Planet 1/Gravity Well" to="Orbit 1/PathFollow2D/Planet 1" method="_on_Gravity_Well_body_entered"]
+[connection signal="body_exited" from="Orbit 1/PathFollow2D/Planet 1/Gravity Well" to="Orbit 1/PathFollow2D/Planet 1" method="_on_Gravity_Well_body_exited"]
+[connection signal="body_entered" from="Orbit 2/PathFollow2D/Planet 2/Gravity Well" to="Orbit 2/PathFollow2D/Planet 2" method="_on_Gravity_Well_body_entered"]
+[connection signal="body_exited" from="Orbit 2/PathFollow2D/Planet 2/Gravity Well" to="Orbit 2/PathFollow2D/Planet 2" method="_on_Gravity_Well_body_exited"]
+[connection signal="body_entered" from="Orbit 3/PathFollow2D/Planet 3/Gravity Well" to="Orbit 3/PathFollow2D/Planet 3" method="_on_Gravity_Well_body_entered"]
+[connection signal="body_exited" from="Orbit 3/PathFollow2D/Planet 3/Gravity Well" to="Orbit 3/PathFollow2D/Planet 3" method="_on_Gravity_Well_body_exited"]
+[connection signal="body_entered" from="Orbit 4/PathFollow2D/Planet 4/Gravity Well" to="Orbit 4/PathFollow2D/Planet 4" method="_on_Gravity_Well_body_entered"]
+[connection signal="body_exited" from="Orbit 4/PathFollow2D/Planet 4/Gravity Well" to="Orbit 4/PathFollow2D/Planet 4" method="_on_Gravity_Well_body_exited"]
+
+[editable path="Raumschiff"]

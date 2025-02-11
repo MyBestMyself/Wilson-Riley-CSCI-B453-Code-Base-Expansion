@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Unicorn Flow.mp3-a6a5ce3cf8942b0df18add8e292bbe56.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Unicorn Flow.mp3"
+dest_files=[ "res://.import/Unicorn Flow.mp3-a6a5ce3cf8942b0df18add8e292bbe56.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

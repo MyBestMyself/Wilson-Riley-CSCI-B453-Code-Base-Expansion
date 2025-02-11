@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GraviAccelerate.mp3-d51660eb43854edcb936b1f273ed3d3c.mp3str"
+
+[deps]
+
+source_file="res://sound/sfx/GraviAccelerate.mp3"
+dest_files=[ "res://.import/GraviAccelerate.mp3-d51660eb43854edcb936b1f273ed3d3c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

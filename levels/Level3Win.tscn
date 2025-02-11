@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/BackToStart.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ScreenInit.gd" type="Script" id=2]
+[ext_resource path="res://sound/music/Atmo1.mp3" type="AudioStream" id=3]
+[ext_resource path="res://prefabs/Jukebox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/final/3_InBetweenScreen.png" type="Texture" id=5]
+
+[node name="Level3Win" type="Node2D"]
+position = Vector2( 966, 538 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -6, 1 )
+texture = ExtResource( 5 )
+
+[node name="Jukebox" parent="." instance=ExtResource( 4 )]
+stream = ExtResource( 3 )
+
+[node name="Continue" type="Button" parent="."]
+margin_left = 453.0
+margin_top = 322.0
+margin_right = 575.0
+margin_bottom = 443.0
+focus_mode = 0
+shortcut_in_tooltip = false
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Continue" to="Continue" method="_button_pressed"]

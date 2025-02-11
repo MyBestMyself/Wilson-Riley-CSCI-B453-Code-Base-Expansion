@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GraviBreak.mp3-d07c09f8ce6e7af35fd4e7f4e89ca278.mp3str"
+
+[deps]
+
+source_file="res://sound/sfx/GraviBreak.mp3"
+dest_files=[ "res://.import/GraviBreak.mp3-d07c09f8ce6e7af35fd4e7f4e89ca278.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

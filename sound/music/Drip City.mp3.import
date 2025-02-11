@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Drip City.mp3-07fd2fc0e07236c9281482c8e3f3ac67.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Drip City.mp3"
+dest_files=[ "res://.import/Drip City.mp3-07fd2fc0e07236c9281482c8e3f3ac67.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

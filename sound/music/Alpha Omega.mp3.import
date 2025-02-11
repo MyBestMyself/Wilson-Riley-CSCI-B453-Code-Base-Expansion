@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Alpha Omega.mp3-374338a7e1b8e85ce52c4db8873844bf.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Alpha Omega.mp3"
+dest_files=[ "res://.import/Alpha Omega.mp3-374338a7e1b8e85ce52c4db8873844bf.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

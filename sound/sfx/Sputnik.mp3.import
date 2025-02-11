@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sputnik.mp3-f81bd05a29e7a48940436218e760e85d.mp3str"
+
+[deps]
+
+source_file="res://sound/sfx/Sputnik.mp3"
+dest_files=[ "res://.import/Sputnik.mp3-f81bd05a29e7a48940436218e760e85d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

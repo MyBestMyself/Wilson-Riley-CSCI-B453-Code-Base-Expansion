@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/ScreenInit.gd" type="Script" id=1]
+[ext_resource path="res://sprites/final/1_InBetweenScreen.png" type="Texture" id=2]
+[ext_resource path="res://sound/sfx/Level Complete.mp3" type="AudioStream" id=3]
+[ext_resource path="res://scripts/ContinueButton.gd" type="Script" id=4]
+[ext_resource path="res://prefabs/Jukebox.tscn" type="PackedScene" id=5]
+
+[node name="Level1Win" type="Node2D"]
+position = Vector2( 966, 538 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -6, 1 )
+texture = ExtResource( 2 )
+
+[node name="Jukebox" parent="." instance=ExtResource( 5 )]
+stream = ExtResource( 3 )
+
+[node name="Continue" type="Button" parent="."]
+margin_left = 456.0
+margin_top = 322.0
+margin_right = 578.0
+margin_bottom = 443.0
+focus_mode = 0
+shortcut_in_tooltip = false
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Continue" to="Continue" method="_button_pressed"]

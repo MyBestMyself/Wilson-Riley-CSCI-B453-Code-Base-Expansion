@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GraviUp2.mp3-4609e0d80a134f451190e02cd2dd54a5.mp3str"
+
+[deps]
+
+source_file="res://sound/sfx/GraviUp2.mp3"
+dest_files=[ "res://.import/GraviUp2.mp3-4609e0d80a134f451190e02cd2dd54a5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

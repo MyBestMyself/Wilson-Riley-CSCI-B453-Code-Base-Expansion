@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Freeze.mp3-9c243a5387d81e429821a76e4cf33f9c.mp3str"
+
+[deps]
+
+source_file="res://sound/sfx/Freeze.mp3"
+dest_files=[ "res://.import/Freeze.mp3-9c243a5387d81e429821a76e4cf33f9c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

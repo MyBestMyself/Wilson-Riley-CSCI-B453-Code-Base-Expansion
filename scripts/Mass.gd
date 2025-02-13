@@ -21,31 +21,41 @@ func _ready():
 func _process(_delta):
 	if not dead:
 		if Input.is_action_just_released("increase") && m_mass < 50:
-			m_mass += 1
-			gravity_handle.position.x -= 4.24
+			m_mass += 5
+			gravity_handle.position.x -= (4.24 * 5)
 		if Input.is_action_just_released("decrease") && m_mass > -50:
-			m_mass -= 1
-			gravity_handle.position.x += 4.24
+			m_mass -= 5
+			gravity_handle.position.x += (4.24 * 5)
 		if Input.is_action_just_released("explode") && OS.is_debug_build():
 			explode()
 		if Input.is_action_just_released("completelvl") && OS.is_debug_build():
 			win()
 		
+		if Input.is_action_just_pressed("m1"):
+			#boost
+			apply_central_impulse(-500 *$Lineup.transform.y.rotated(rotation) * abs(m_mass))
+		
+		if Input.is_action_pressed("m2"):
+			pass
+
 func _physics_process(delta):
 	var mass_absolute = abs(m_mass)
 	
 	if m_mass < 0:
-		gravity_scale = -2
+		gravity_scale = -5
 	elif m_mass == 0:
 		gravity_scale = 0
 	else:
-		gravity_scale = 2
+		gravity_scale = 5
 	
 	if mass_absolute > 0:
 		mass = mass_absolute
 	
 	if not dead:
+		$Lineup.rotation = to_local(get_global_mouse_position()).angle() + PI / 2
 		rotate_away_from(get_nearest_planet(), delta)
+	
+	$Label.text = str(rotation_degrees)
 
 func collect_crystal(crystal : Crystal):
 	crystals += 1
@@ -94,10 +104,20 @@ func rotate_away_from(target : Node2D, delta):
 	var diff = short_angle_dist(coll.rotation, angle)
 	coll.rotation += diff * delta * 2 # quasi-lerp
 
+func rotate_towards(target: Node2D, delta):
+	var angle = 0
+	if target != null:
+		var dir = target.global_position - global_position
+		if dir.length() < 250:
+			angle = dir.angle() + PI / 2
+	
+	var coll = get_node("Collider")
+	var diff = short_angle_dist(coll.rotation, angle)
+	coll.rotation += diff * delta * 2 # quasi-lerp
+
+
 func short_angle_dist(from, to):
-	var max_angle = PI * 2
-	var difference = fmod(to - from, max_angle)
-	return fmod(2 * difference, max_angle) - difference
+	return fmod(to - from + PI, PI * 2) - PI
 
 func burn_up(_sun):
 	print_debug("burned up!")
@@ -124,7 +144,7 @@ func die(reason):
 	elif reason == 2:
 		deathOverlay = get_node("Camera2D/CanvasLayer/Death2")
 	
-	yield(get_tree().create_timer(2.0), "timeout")	
+	yield(get_tree().create_timer(2.0), "timeout")
 	deathOverlay.visible = true
 	yield(deathOverlay.get_child(0), "pressed")
 	get_node("/root/Game").restart_current_level()

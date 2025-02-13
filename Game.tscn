@@ -14,4 +14,4 @@ zoom = Vector2( 3, 3 )
 anchor_mode = 0
 
 [node name="StartScreen" parent="." instance=ExtResource( 1 )]
-position = Vector2( 446, 219 )
+position = Vector2( 448, 216 )

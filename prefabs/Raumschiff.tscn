@@ -16,12 +16,16 @@
 [ext_resource path="res://sprites/final/LostScreen_BurnedUni.png" type="Texture" id=14]
 
 [node name="Raumschiff" type="RigidBody2D"]
-mode = 2
-gravity_scale = 0.0
-contacts_reported = 10
-contact_monitor = true
-can_sleep = false
 script = ExtResource( 2 )
+
+[node name="Lineup" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Lineup"]
+margin_left = -3.0
+margin_top = -139.0
+margin_right = 3.0
+margin_bottom = 3.0
+grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -118,4 +122,9 @@ stream = ExtResource( 11 )
 [node name="FreezingSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
 
-[connection signal="body_entered" from="." to="." method="_on_Raumschiff_body_entered"]
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = -24.0
+margin_right = 56.0
+margin_bottom = -10.0
+text = "MASS"

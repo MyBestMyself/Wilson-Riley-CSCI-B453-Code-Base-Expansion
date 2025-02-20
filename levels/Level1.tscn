@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://sprites/final/RedSun.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Sun.gd" type="Script" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://prefabs/RedCrystal.tscn" type="PackedScene" id=16]
 [ext_resource path="res://prefabs/Planet 2.tscn" type="PackedScene" id=17]
 [ext_resource path="res://prefabs/Jukebox.tscn" type="PackedScene" id=18]
+[ext_resource path="res://prefabs/SunPlanet.tscn" type="PackedScene" id=19]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 101.005
@@ -57,7 +58,6 @@ texture = ExtResource( 1 )
 shape = SubResource( 3 )
 
 [node name="Gravity Well" type="Area2D" parent="Sun"]
-visible = false
 scale = Vector2( 3.84, 3.84 )
 space_override = 1
 gravity_point = true
@@ -127,11 +127,29 @@ day_length = 30.0
 [node name="RedCrystal" parent="Orbit 3/PathFollow2D/Planet 3" instance=ExtResource( 16 )]
 position = Vector2( -0.841309, -41.6942 )
 
+[node name="Orbit 4" type="Path2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+curve = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="Orbit 4"]
+z_index = -10
+texture = ExtResource( 10 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Orbit 4"]
+position = Vector2( 637.517, 612.724 )
+offset = 2058.76
+rotate = false
+
+[node name="Sun" parent="Orbit 4/PathFollow2D" instance=ExtResource( 19 )]
+position = Vector2( -3.51703, -4.72369 )
+
 [node name="Jukebox" parent="." instance=ExtResource( 18 )]
 pause_mode = 2
 
 [node name="Raumschiff" parent="." instance=ExtResource( 15 )]
 position = Vector2( -424, -1292 )
+contacts_reported = 2
+contact_monitor = true
 
 [node name="OverlaySprite" type="Sprite" parent="."]
 pause_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://scripts/Planet.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Sun.gd" type="Script" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://prefabs/Raumschiff.tscn" type="PackedScene" id=21]
 [ext_resource path="res://prefabs/BlueCrystal.tscn" type="PackedScene" id=22]
 [ext_resource path="res://prefabs/Jukebox.tscn" type="PackedScene" id=23]
+[ext_resource path="res://prefabs/SunPlanet.tscn" type="PackedScene" id=24]
+[ext_resource path="res://sprites/final/1circle-aroundSun.png" type="Texture" id=25]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 153.003
@@ -84,6 +86,11 @@ radius = 54.0093
 [sub_resource type="CircleShape2D" id=19]
 radius = 14.368
 
+[sub_resource type="Curve2D" id=20]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -2, -909, 0, 0, 0, 0, 164, -891, 0, 0, 0, 0, 333, -835, 0, 0, 0, 0, 465, -765, 0, 0, 0, 0, 581, -673, 0, 0, 0, 0, 648, -599, 0, 0, 0, 0, 712, -517, 0, 0, 0, 0, 758, -434, 0, 0, 0, 0, 802, -333, 0, 0, 0, 0, 836, -237, 0, 0, 0, 0, 852, -141, 0, 0, 0, 0, 862, 8, 0, 0, 0, 0, 854, 122, 0, 0, 0, 0, 840, 200, 0, 0, 0, 0, 819, 293, 0, 0, 0, 0, 788, 375, 0, 0, 0, 0, 751, 454, 0, 0, 0, 0, 701, 532, 0, 0, 0, 0, 640, 610, 0, 0, 0, 0, 575, 681, 0, 0, 0, 0, 431, 791, 0, 0, 0, 0, 311, 846, 0, 0, 0, 0, 218, 875, 0, 0, 0, 0, 104, 901, 0, 0, 0, 0, -2, 909, 0, 0, 0, 0, -142, 898, 0, 0, 0, 0, -271, 867, 0, 0, 0, 0, -406, 804, 0, 0, 0, 0, -524, 721, 0, 0, 0, 0, -628, 627, 0, 0, 0, 0, -715, 511, 0, 0, 0, 0, -783, 384, 0, 0, 0, 0, -826, 264, 0, 0, 0, 0, -857, 140, 0, 0, 0, 0, -864, -1, 0, 0, 0, 0, -854, -121, 0, 0, 0, 0, -838, -216, 0, 0, 0, 0, -805, -320, 0, 0, 0, 0, -750, -447, 0, 0, 0, 0, -697, -533, 0, 0, 0, 0, -626, -630, 0, 0, 0, 0, -546, -701, 0, 0, 0, 0, -468, -760, 0, 0, 0, 0, -379, -816, 0, 0, 0, 0, -269, -865, 0, 0, 0, 0, -129, -898, 0, 0, 0, 0, -2, -909 )
+}
+
 [node name="Level3" type="Node2D"]
 script = ExtResource( 3 )
 crystal_count = 4
@@ -117,7 +124,7 @@ shape = SubResource( 5 )
 [node name="Raumschiff" parent="." instance=ExtResource( 21 )]
 position = Vector2( 248, 589 )
 
-[node name="Sprite" parent="Raumschiff/Collider" index="0"]
+[node name="Sprite" parent="Raumschiff/Collider" index="1"]
 texture = ExtResource( 16 )
 
 [node name="Jukebox" parent="." instance=ExtResource( 23 )]
@@ -305,6 +312,22 @@ shape = SubResource( 19 )
 
 [node name="BlueCrystal" parent="Orbit 5/PathFollow2D/Planet 5" instance=ExtResource( 22 )]
 position = Vector2( 0, -70 )
+
+[node name="Orbit 6" type="Path2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
+curve = SubResource( 20 )
+
+[node name="Sprite" type="Sprite" parent="Orbit 6"]
+z_index = -10
+texture = ExtResource( 25 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Orbit 6"]
+position = Vector2( 637.517, 612.724 )
+offset = 2058.76
+rotate = false
+
+[node name="Sun" parent="Orbit 6/PathFollow2D" instance=ExtResource( 24 )]
+position = Vector2( -3.51703, -4.72369 )
 
 [node name="LevelHUD" type="CanvasLayer" parent="."]
 

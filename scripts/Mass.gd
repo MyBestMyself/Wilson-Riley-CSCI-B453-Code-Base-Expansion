@@ -10,6 +10,8 @@ export (int) var crystals = 0
 var dead = false
 var explosion = preload("res://materials/Explosion.tres")
 
+var canBoost = true
+
 var nearby_planets = {}
 
 signal crystal_collected(new_count)
@@ -31,12 +33,12 @@ func _process(_delta):
 		if Input.is_action_just_released("completelvl") && OS.is_debug_build():
 			win()
 		
-		if Input.is_action_just_pressed("m1"):
+		if Input.is_action_just_pressed("m1") and canBoost:
 			#boost
+			canBoost = false
+			$Lineup.hide()
+			$Collider/BoostParticles.emitting = true
 			apply_central_impulse(-500 *$Lineup.transform.y.rotated(rotation) * abs(m_mass))
-		
-		if Input.is_action_pressed("m2"):
-			pass
 
 func _physics_process(delta):
 	var mass_absolute = abs(m_mass)
@@ -59,6 +61,8 @@ func _physics_process(delta):
 
 func collect_crystal(crystal : Crystal):
 	crystals += 1
+	canBoost = true
+	$Lineup.show()
 	print_debug("crystal collected: " + str(crystals))
 	crystal.hide_and_reparent(self)
 	get_node("CollectJingleSFX").play()

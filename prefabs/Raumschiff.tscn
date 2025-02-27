@@ -20,6 +20,8 @@ offsets = PoolRealArray( 0.792793, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 0 )
 
 [node name="Raumschiff" type="RigidBody2D"]
+contacts_reported = 2
+contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="Lineup" type="Node2D" parent="."]
@@ -157,6 +159,7 @@ stream = ExtResource( 11 )
 stream = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = 16.0
 margin_top = -24.0
 margin_right = 56.0
